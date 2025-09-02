@@ -1,5 +1,5 @@
 # Use OpenJDK 17 as base image
-FROM openjdk:17-jdk-slim
+FROM openjdk:21-jdk-slim
 
 # Set working directory
 WORKDIR /app
@@ -19,8 +19,8 @@ COPY src ./src
 # Build the application
 RUN ./mvnw clean package -DskipTests
 
-# Expose port
-EXPOSE 8080
+# Expose port (Railway provides PORT env var)
+EXPOSE $PORT
 
-# Run the application
-CMD ["java", "-jar", "target/*.jar"]
+# Run the application with dynamic port
+CMD ["sh", "-c", "java -jar target/*.jar --server.port=${PORT:-8080}"]

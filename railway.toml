@@ -1,6 +1,7 @@
 [build]
 builder = "dockerfile"
 dockerfilePath = "NoteIt/Dockerfile"
+dockerContext = "NoteIt"
 
 [deploy]
 healthcheckPath = "/api/auth/health"
