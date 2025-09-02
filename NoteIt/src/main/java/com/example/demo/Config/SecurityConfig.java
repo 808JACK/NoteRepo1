@@ -77,7 +77,8 @@ public class SecurityConfig {
         configuration.setAllowedOrigins(Arrays.asList(
             "http://localhost:8084", 
             "http://localhost:5173", 
-            "http://localhost:3000"
+            "http://localhost:3000",
+            "https://noteit-frontend-sarthak.vercel.app"
         ));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(Arrays.asList("Origin", "Content-Type", "Accept", "Authorization", "X-Requested-With"));
