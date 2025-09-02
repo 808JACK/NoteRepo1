@@ -3,7 +3,7 @@ builder = "dockerfile"
 dockerfilePath = "NoteIt/Dockerfile"
 
 [deploy]
-healthcheckPath = "/api/auth/health"
+healthcheckPath = "/api/health"
 healthcheckTimeout = 300
 restartPolicyType = "on_failure"
 restartPolicyMaxRetries = 10
