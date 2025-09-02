@@ -1,9 +1,9 @@
 [build]
-builder = "nixpacks"
+builder = "dockerfile"
+dockerfilePath = "NoteIt/Dockerfile"
 
 [deploy]
-startCommand = "java -jar target/*.jar"
-healthcheckPath = "/api/health"
+healthcheckPath = "/api/auth/health"
 healthcheckTimeout = 300
 restartPolicyType = "on_failure"
 restartPolicyMaxRetries = 10
