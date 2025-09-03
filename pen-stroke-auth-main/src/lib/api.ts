@@ -67,7 +67,16 @@ class ApiService {
     };
 
     try {
-      const response = await fetch(url, config);
+      // Add 30 second timeout
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 30000);
+      
+      const response = await fetch(url, {
+        ...config,
+        signal: controller.signal
+      });
+      
+      clearTimeout(timeoutId);
       
       // Check for new access token in response headers
       const newToken = response.headers.get('X-New-Access-Token');
