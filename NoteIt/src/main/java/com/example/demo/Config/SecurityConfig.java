@@ -74,12 +74,10 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        // Temporarily allow all origins for debugging - CHANGE THIS IN PRODUCTION
-        configuration.setAllowedOriginPatterns(Arrays.asList("*"));
-        // configuration.setAllowedOriginPatterns(Arrays.asList(
-        //     "http://localhost:*", 
-        //     "https://note-repo1*.vercel.app"
-        // ));
+        configuration.setAllowedOriginPatterns(Arrays.asList(
+            "http://localhost:*", 
+            "https://note-repo1*.vercel.app"
+        ));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(Arrays.asList("Origin", "Content-Type", "Accept", "Authorization", "X-Requested-With"));
         configuration.setAllowCredentials(true);

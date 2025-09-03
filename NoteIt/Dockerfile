@@ -4,17 +4,17 @@ FROM openjdk:21-jdk-slim
 # Set working directory
 WORKDIR /app
 
-# Copy Maven wrapper and pom.xml from NoteIt directory
-COPY NoteIt/mvnw .
-COPY NoteIt/mvnw.cmd .
-COPY NoteIt/.mvn .mvn
-COPY NoteIt/pom.xml .
+# Copy Maven wrapper and pom.xml
+COPY mvnw .
+COPY mvnw.cmd .
+COPY .mvn .mvn
+COPY pom.xml .
 
 # Make mvnw executable
 RUN chmod +x ./mvnw
 
-# Copy source code from NoteIt directory
-COPY NoteIt/src ./src
+# Copy source code
+COPY src ./src
 
 # Build the application
 RUN ./mvnw clean package -DskipTests
